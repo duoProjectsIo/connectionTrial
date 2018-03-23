@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Roboto');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Dosis', sans-serif;
+}
+
+.content{
+    max-width: 1500px;
+    margin: 0 auto;
+    @media (max-width: $break-to-mobile){
+        width: 100%;
+    }
+}
+
+.centralizer{
+    width: 970px;
+    margin: 0 auto;
+    position: relative;
+    @media (max-width: $break-to-mobile){
+        width: 90%;
+    }
+}
+
+a{
+  text-decoration: none;
+  outline:none
+}
+
+.avatar-profile{
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+a:hover, button:hover{
+    cursor: pointer;
+}

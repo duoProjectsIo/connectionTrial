@@ -1,0 +1,340 @@
+<md-dialog aria-label="Trial" flex="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Trial</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="saveTrial.functions.hide()">
+                <md-icon class="icon-28">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div>
+                <h1>Informações sobre rastreamento</h1>
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.firstSubmittedDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="Primeira data enviada"
+                               ng-model="saveTrial.vars.firstSubmittedDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.firstPostedDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="Primeira data de publicação"
+                               ng-model="saveTrial.vars.firstPostedDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.lastUpdatePostedDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="Última atualização"
+                               ng-model="saveTrial.vars.lastUpdatePostedDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.startDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="Data de início real"
+                               ng-model="saveTrial.vars.startDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.estimatedPrimaryCompletionDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="DataData de conclusão preliminar estimada"
+                               ng-model="saveTrial.vars.estimatedPrimaryCompletionDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.currentPrimaryOutcomeMeasures.status">
+                    <label>Medidas de resultado primárias atuais</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.currentPrimaryOutcomeMeasures.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.originalPrimaryOutcomeMeasures.status">
+                    <label>Medidas primárias de resultados originais</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.originalPrimaryOutcomeMeasures.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.changeHistory.status">
+                    <label>Histórico de Mudanças</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.changeHistory.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.currentSecondaryOutcomeMeasures.status">
+                    <label>Medidas de resultados secundários atuais</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.currentSecondaryOutcomeMeasures.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.originalSecondaryOutcomeMeasures.status">
+                    <label>Medidas de resultados secundários atuais</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.originalSecondaryOutcomeMeasures.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.currentOtherOutcomeMeasures.status">
+                    <label>Medidas atuais de outros desfechos</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.currentOtherOutcomeMeasures.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.originalOtherOutcomeMeasures.status">
+                    <label>Outras medidas originais de resultados</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.originalOtherOutcomeMeasures.value"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <h1>Informação descritiva</h1>
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.briefTitle.status">
+                    <label>Título Breve</label>
+                    <textarea ng-model="saveTrial.vars.briefTitle.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.officialTitle.status">
+                    <label>Título oficial</label>
+                    <textarea ng-model="saveTrial.vars.officialTitle.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.briefSummary.status">
+                    <label>Sumário breve</label>
+                    <textarea ng-model="saveTrial.vars.briefSummary.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.detailedDescription.status">
+                    <label>Descrição detalhada</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.detailedDescription.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.studyType.status">
+                    <label>Tipo de estudo</label>
+                    <input type="text" ng-model="saveTrial.vars.studyType.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.studyPhase.status">
+                    <label>Fase de estudo</label>
+                    Fase 1<input type="radio" value="phase1" ng-model="saveTrial.vars.studyPhase.value">
+                    Fase 2<input type="radio" value="phase2" ng-model="saveTrial.vars.studyPhase.value">
+                    Fase 3<input type="radio" value="phase3" ng-model="saveTrial.vars.studyPhase.value">
+                    Fase 4<input type="radio" value="phase4" ng-model="saveTrial.vars.studyPhase.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.studyDesign.status">
+                    <label>Design de estudo</label>
+                    <textarea ng-model="saveTrial.vars.studyDesign.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.condition.status">
+                    <label>Condiçao</label>
+                    <input type="text" ng-model="saveTrial.vars.condition.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.detailedDescription.status">
+                    <label>Intervenção</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.detailedDescription.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.studyArms.status">
+                    <label>Braços de estudo</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.studyArms.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.publications.status">
+                    <label>Publicações</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.publications.value"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <h1>Informação de Recrutamento</h1>
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.recruitmentInformation.status">
+                    <label>Status de recrutamento</label>
+                    <input type="text" ng-model="saveTrial.vars.recruitmentInformation.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.estimatedEnrollment.status">
+                    <label>Matrícula estimada</label>
+                    <input type="text" ng-model="saveTrial.vars.estimatedEnrollment.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.eligibilityCriteria.status">
+                    <label>Critério de eleição</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.eligibilityCriteria.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.gender.status">
+                    <label>Sexo</label>
+                    Masculino<input type="radio" value="m" ng-model="saveTrial.vars.gender.value">
+                    Feminino<input type="radio" value="f" ng-model="saveTrial.vars.gender.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.ages.status">
+                    <label>Status de recrutamento</label>
+                    <input type="text" ng-model="saveTrial.vars.ages.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.acceptsHealthyVolunteers.status">
+                    <label>Aceita voluntários saudáveis</label>
+                    Sim<input type="radio" value="true" ng-model="saveTrial.vars.acceptsHealthyVolunteers.value">
+                    Não<input type="radio" value="false" ng-model="saveTrial.vars.acceptsHealthyVolunteers.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.contacts.status">
+                    <label>Contatos</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.contacts.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.listedLocationCountries.status">
+                    <label>Países listados na lista</label>
+                    <textarea ng-model="saveTrial.vars.listedLocationCountries.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.removedLocationCountries.status">
+                    <label>Países de localização removidos</label>
+                    <textarea ng-model="saveTrial.vars.removedLocationCountries.value"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <h1>Informação Administrativa</h1>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.NCTNumber.status">
+                    <label>Número NCT</label>
+                    <input type="text" ng-model="saveTrial.vars.NCTNumber.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.otherStudyIDNumbers.status">
+                    <label>outros números de ID de estudo</label>
+                    <textarea type="text" ng-model="saveTrial.vars.otherStudyIDNumbers.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.hasDataMonitoringCommittee.status">
+                    <label>Tem Comitê de Monitoramento de Dados</label>
+                    Sim<input type="radio" value="true" ng-model="saveTrial.vars.hasDataMonitoringCommittee.value">
+                    Não<input type="radio" value="false" ng-model="saveTrial.vars.hasDataMonitoringCommittee.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.USFDARegulatedProduct.status">
+                    <label>Produto regulado pela FDA nos EUA</label>
+                    <input type="text" ng-model="saveTrial.vars.USFDARegulatedProduct.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.IPDSharingStatement.status">
+                    <label>Declaração de Compartilhamento de IPD</label>
+                    <input type="text" ng-model="saveTrial.vars.IPDSharingStatement.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.responsibleParty.status">
+                    <label>Parte Responsável</label>
+                    <input type="text" ng-model="saveTrial.vars.responsibleParty.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.studySponsor.status">
+                    <label>Patrocinador do estudo</label>
+                    <input type="text" ng-model="saveTrial.vars.studySponsor.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.collaborators.status">
+                    <label>Colaboradores</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.collaborators.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.investigators.status">
+                    <label>Investigadores</label>
+                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions"
+                              ng-model="saveTrial.vars.investigators.value"></textarea>
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.PRSAccount.status">
+                    <label>Conta PRS</label>
+                    <input type="text" ng-model="saveTrial.vars.PRSAccount.value">
+                </div>
+
+                <div>
+                    Campo visivel?<input type="checkbox" ng-model="saveTrial.vars.verificationDate.status">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input placeholder="Data de verificação"
+                               ng-model="saveTrial.vars.verificationDate.value"
+                               type="text">
+                    </datepicker>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+
+
+    <md-dialog-actions layout="row">
+        <md-button ng-click="saveTrial.functions.hide()">
+            Cancelar
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="saveTrial.functions.saveAndNew.doSave()">
+            Salvar e inserir um novo
+        </md-button>
+        <md-button ng-click="saveTrial.functions.save.doSave()">
+            Salvar
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

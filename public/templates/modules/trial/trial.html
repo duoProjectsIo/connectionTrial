@@ -1,0 +1,92 @@
+<div>
+    Trials
+</div>
+
+<button ng-click="trial.functions.saveTrial()">
+    Adicionar Trial
+</button>
+
+<div>
+    <div layout="row">
+        <md-card flex="100">
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-show="trial.vars.filter">
+                <div class="md-toolbar-tools">
+                    <md-icon class="icon-24">search</md-icon>
+                    <form flex>
+                        <input type="text"
+                               style="border: 0; outline: none;"
+                               placeholder="Buscar pelo título"
+                               ng-model="trial.vars.search"
+                               set-focus="trial.vars.filter">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="trial.functions.closeFilter()">
+                        <md-icon class="icon-24">close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-hide="trial.vars.filter">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" ng-click="trial.vars.filter = true" style="outline: none;">Clique para filtrar por título</h2>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="trial.vars.filter = true">
+                        <md-icon class="icon-24">filter_list</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+
+                    <thead md-head md-order="trial.vars.query.order">
+                    <tr md-row>
+                        <th md-column md:order:by="firstSubmittedDate.value">Primeira data enviada</th>
+                        <th md-column md:order:by="briefTitle.value">Titulo</th>
+                        <th md-column>Editar Trial</th>
+                        <th md-column>Deletar Trial</th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row
+                        ng-repeat="data in trial.vars.listTrialsFilter |
+                        orderBy: trial.vars.query.order |
+                        limitTo: trial.vars.query.limit: (trial.vars.query.page - 1) * trial.vars.query.limit">
+
+                        <td md-cell>{{data.firstSubmittedDate.value | date:'dd/MM/yyyy HH:mm'}}</td>
+
+                        <td md-cell>
+                            <b>{{data.briefTitle.value}}</b>
+                        </td>
+
+                        <td md-cell>
+                            <md-button ng-click="trial.functions.saveTrial(data)"
+                                       class="md-icon-button">
+                                <md-icon class="icon-24">edit_mode</md-icon>
+                                <md-tooltip md-direction="right">
+                                    Clique para editar produto
+                                </md-tooltip>
+                            </md-button>
+                        </td>
+
+                        <td md-cell>
+                            <md-button ng-click="trial.functions.deleteProduct(data._id)"
+                                       class="md-icon-button">
+                                <md-icon class="icon-24">delete_forever</md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="trial.vars.query.limit"
+                                 md-page="trial.vars.query.page"
+                                 md-total="{{trial.vars.listTrials.length}}"
+                                 md-page-select md-label="{page: 'Página:', rowsPerPage: 'Linhas por Página:', of: 'de'}"
+                                 md-options="[25,50,100]"></md-table-pagination>
+        </md-card>
+    </div>
+</div>

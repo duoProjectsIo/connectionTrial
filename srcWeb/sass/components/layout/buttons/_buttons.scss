@@ -1,0 +1,38 @@
+.btn-default{
+    background: $main-color;
+    border: 1px solid $secundary-color;
+    padding: 15px;
+    border-radius: 30px;
+    outline: none;
+    color: $secundary-color;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 200px;
+    font-weight: bold;
+    transition: all .3s ease;
+    &:hover{
+        border: 1px solid $main-color;
+        background: $secundary-color;
+        color: $main-color;
+    }
+    &:not(:hover){
+        background: $main-color;
+        color: $secundary-color;
+    }
+}
+
+.btn-default-login{
+    display: block;
+    width: 100%;
+}
+
+.btn-right{
+    float: right;
+}
+
+.btn-float-right{
+    position: fixed;
+    float: right;
+    left: 92%;
+    top: 96px;
+}

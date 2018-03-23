@@ -1,0 +1,18 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/*",
+    "bower_components/*",
+    "hooks/*",
+    "log/*",
+    "platforms/*",
+    "plugins/*",
+    "res/*",
+    ".sass-cache/*",
+    "srcWeb/*",
+    "www/*",
+    "public/*"
+  ],
+  "verbose": false
+}
