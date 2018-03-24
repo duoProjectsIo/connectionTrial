@@ -3,7 +3,7 @@
         <div class="md-toolbar-tools">
             <h2>Trial</h2>
             <span flex></span>
-            <md-button class="md-icon-button" ng-click="saveTrial.functions.hide()">
+            <md-button class="md-icon-button" ng-click="saveTrial.functions.cancel()">
                 <md-icon class="icon-28">close</md-icon>
             </md-button>
         </div>
@@ -12,6 +12,31 @@
 
     <md-dialog-content>
         <div class="md-dialog-content">
+            <div>
+                <h1>Tags</h1>
+                <div>
+                    <label>Tags</label>
+                    <md-chips ng-model="saveTrial.vars.keywords"
+                              md-autocomplete-snap
+                              md-transform-chip="saveTrial.vars.tags.transformChip($chip)"
+                              md-require-match="saveTrial.vars.tags.autocompleteDemoRequireMatch">
+                        <md-autocomplete
+                                md-selected-item="saveTrial.vars.tags.selectedItem"
+                                md-search-text="saveTrial.vars.tags.searchText"
+                                md-items="item in saveTrial.vars.tags.querySearch(saveTrial.vars.tags.searchText)"
+                                md-item-text="item"
+                                placeholder="Tags">
+                            <span md-highlight-text="saveTrial.vars.tags.searchText">{{item}}</span>
+                        </md-autocomplete>
+                        <md-chip-template>
+                            <span>
+                              <strong>{{$chip}}</strong>
+                            </span>
+                        </md-chip-template>
+                    </md-chips>
+                </div>
+            </div>
+
             <div>
                 <h1>Informações sobre rastreamento</h1>
                 <div>
@@ -326,7 +351,7 @@
 
 
     <md-dialog-actions layout="row">
-        <md-button ng-click="saveTrial.functions.hide()">
+        <md-button ng-click="saveTrial.functions.cancel()">
             Cancelar
         </md-button>
         <span flex></span>

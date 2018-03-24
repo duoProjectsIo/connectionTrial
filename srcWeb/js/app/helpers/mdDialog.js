@@ -32,7 +32,7 @@ angular
                     locals : {
                         data : options.dataToDialog
                     }
-                }).then(options.functionThen);
+                }).then(options.functionThen, options.functionCancel);
             },
 
             cancel : function () {

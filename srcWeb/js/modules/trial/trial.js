@@ -59,7 +59,34 @@ function trial($scope, $filter, trialService, profileGet, dialogAdvanced, dialog
                 clickOutsideToClose : false,
                 dataToDialog : data,
                 functionThen : function () {
+                    dialogAlert.show({
+                        title : 'Sucesso!',
+                        content : 'Seu Trial foi salvo com sucesso!',
+                        ok : 'OK!'
+                    });
                     trial.functions.getTrials.getTrials();
+                },
+                functionCancel : function () {
+                    trial.functions.getTrials.getTrials();
+                }
+            });
+        },
+
+        deleteTrial : function (data) {
+            dialogConfirm.show({
+                title : 'Atenção!',
+                textContent : 'Deseja realmente deletar este trial?',
+                ok : 'Sim',
+                cancel : 'Cancelar',
+                confirmFunction : function () {
+                    trialService.deleteTrial.save(data, function () {
+                        dialogAlert.show({
+                            title : 'Trial deletado!',
+                            content : 'Seu trial foi deletado com sucesso.',
+                            ok : 'OK'
+                        });
+                        trial.functions.getTrials.getTrials();
+                    });
                 }
             });
         }
@@ -68,17 +95,20 @@ function trial($scope, $filter, trialService, profileGet, dialogAdvanced, dialog
     trial.functions.core();
 }
 
-function saveTrialController(dialogAdvanced, toastAction, trialService, profileGet, data, dialogAlert) {
+function saveTrialController(dialogAdvanced, toastAction, trialService, profileGet, data, dialogAlert, chipSimpleToList, $scope) {
     var saveTrial = this;
     saveTrial.vars = {};
 
     saveTrial.functions = {
-        core: function () {
-            saveTrial.functions.defineVars();
+        core: function (salveAndNew) {
+            saveTrial.functions.defineVars(salveAndNew);
+            saveTrial.functions.getKeywords().then(function () {
+                saveTrial.functions.prepareChips();
+            });
         },
 
-        defineVars : function () {
-            if(data) {
+        defineVars : function (salveAndNew) {
+            if(data && !salveAndNew) {
                 saveTrial.vars = data;
             }else{
                 saveTrial.vars = {
@@ -131,15 +161,45 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
                     investigators : { value : null, status : false},
                     PRSAccount : { value : null, status : false},
                     verificationDate : { value : null, status : false},
+
+                    keywords : []
                 }
             }
 
+            saveTrial.vars.tags = {};
             saveTrial.vars.profile = profileGet;
             saveTrial.vars.tinymceOptions = {
                 selector: 'textarea',
                 plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern',
                 toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat'
             }
+        },
+
+        getKeywords : function () {
+            return new Promise(function (success) {
+                trialService.getKeywords.get(function (data) {
+                    if(data.status){
+                        saveTrial.vars.tags.arrayValues = [];
+                        data.data.forEach(function (value) {
+                            saveTrial.vars.tags.arrayValues.push(value.keywords);
+                        });
+                    }else {
+                        saveTrial.vars.tags.arrayValues = [];
+                    }
+                    success();
+                });
+            })
+        },
+
+        prepareChips : function () {
+            saveTrial.vars.tags = chipSimpleToList.show({
+                readonly : false,
+                selectedItem : null,
+                searchText : saveTrial.vars.tags.searchText,
+                autoCompleteDemoRequireMatch : null,
+                selectedValues : [],
+                arrayValues : saveTrial.vars.tags.arrayValues
+            });
         },
 
         hide : function () {
@@ -158,11 +218,6 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
             },
 
             successSaveTrial : function (data) {
-                dialogAlert.show({
-                    title : 'Sucesso!',
-                    content : 'Seu Trial foi criado com sucesso!',
-                    ok : 'OK!'
-                });
                 saveTrial.functions.hide();
             }
         },
@@ -181,57 +236,7 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
                     text : 'Trial salvo!',
                     scope : saveTrial
                 });
-                saveTrial.vars = {
-                    firstSubmittedDate : { value : null, status : false},
-                    firstPostedDate : { value : null, status : false},
-                    lastUpdatePostedDate : { value : null, status : false},
-                    startDate : { value : null, status : false},
-                    estimatedPrimaryCompletionDate : { value : null, status : false},
-                    currentPrimaryOutcomeMeasures : { value : null, status : false},
-                    originalPrimaryOutcomeMeasures : { value : null, status : false},
-                    changeHistory : { value : null, status : false},
-                    currentSecondaryOutcomeMeasures : { value : null, status : false},
-                    originalSecondaryOutcomeMeasures : { value : null, status : false},
-                    currentOtherOutcomeMeasures : { value : null, status : false},
-                    originalOtherOutcomeMeasures : { value : null, status : false},
-
-                    //Descriptive Information
-                    briefTitle : { value : null, status : false},
-                    officialTitle : { value : null, status : false},
-                    briefSummary : { value : null, status : false},
-                    detailedDescription : { value : null, status : false},
-                    studyType : { value : null, status : false},
-                    studyPhase : { value : null, status : false},
-                    studyDesign : { value : null, status : false},
-                    condition : { value : null, status : false},
-                    intervention : { value : null, status : false},
-                    studyArms : { value : null, status : false},
-                    publications : { value : null, status : false},
-
-                    //Recruitment Information
-                    recruitmentStatus : { value : null, status : false},
-                    estimatedEnrollment : { value : null, status : false},
-                    eligibilityCriteria : { value : null, status : false},
-                    gender : { value : null, status : false},
-                    ages : { value : null, status : false},
-                    acceptsHealthyVolunteers : { value : null, status : false},
-                    contacts : { value : null, status : false},
-                    listedLocationCountries : { value : null, status : false},
-                    removedLocationCountries : { value : null, status : false},
-
-                    //Administrative Information
-                    NCTNumber : { value : null, status : false},
-                    otherStudyIDNumbers : { value : null, status : false},
-                    hasDataMonitoringCommittee : { value : null, status : false},
-                    USFDARegulatedProduct : { value : null, status : false},
-                    IPDSharingStatement : { value : null, status : false},
-                    responsibleParty : { value : null, status : false},
-                    studySponsor : { value : null, status : false},
-                    collaborators : { value : null, status : false},
-                    investigators : { value : null, status : false},
-                    PRSAccount : { value : null, status : false},
-                    verificationDate : { value : null, status : false},
-                }
+                saveTrial.functions.core(true);
             }
         }
     };

@@ -24,8 +24,14 @@ module.exports = function(app) {
     let getTrialsWeb = require('./web/modules/trial/getTrials');
     app.get('/web/getTrials', getTrialsWeb.getTrials);
 
+    let getKeywordsWeb = require('./web/modules/trial/getKeywords');
+    app.get('/web/getKeywords', getKeywordsWeb.getKeywords);
+
     let saveTrialWeb = require('./web/modules/trial/saveTrial');
     app.post('/web/saveTrial', saveTrialWeb.saveTrial);
+
+    let deleteTrialWeb = require('./web/modules/trial/deleteTrial');
+    app.post('/web/deleteTrial', deleteTrialWeb.deleteTrial);
     //endregion
     //endregion
 

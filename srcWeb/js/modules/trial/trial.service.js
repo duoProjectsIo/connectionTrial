@@ -4,6 +4,8 @@ angular.module('trial')
 function trialService($resource, defineHost) {
     return {
         getTrials : $resource(defineHost.host + '/web/getTrials'),
-        saveTrial : $resource(defineHost.host + '/web/saveTrial')
+        getKeywords : $resource(defineHost.host + '/web/getKeywords'),
+        saveTrial : $resource(defineHost.host + '/web/saveTrial'),
+        deleteTrial : $resource(defineHost.host + '/web/deleteTrial')
     }
 }
