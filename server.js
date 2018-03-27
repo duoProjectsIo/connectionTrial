@@ -9,8 +9,8 @@ let express = require('express'),
 
 //region General Config
 require('./server/config/config')(app, http);
-require('./server/config/database/databaseConfig')('mongodb://localhost/' + appName);
-/*require('./server/config/database/databaseConfig')('mongodb://'+ dbUser +':'+ dbPassword + '@ds013486.mlab.com:13486/heroku_lf75hpr5');*/
+/*require('./server/config/database/databaseConfig')('mongodb://localhost/' + appName);*/
+require('./server/config/database/databaseConfig')('mongodb://'+ dbUser +':'+ dbPassword + '@ds013486.mlab.com:13486/heroku_lf75hpr5');
 //endregion
 
 //region Start App
