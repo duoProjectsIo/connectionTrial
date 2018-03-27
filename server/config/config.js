@@ -15,7 +15,7 @@ module.exports = function(app, http) {
     app.use(express.static(process.cwd()+'/public/'));
     app.use(cors({origin: 'http://localhost:3000', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'}));
     app.use(cors({origin: 'http://192.168.1.103:80', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'}));
-    app.options('*', cors());
+    app.options('*', cors({methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'}));
     //endregion
 
     //region Consign
