@@ -11,7 +11,8 @@ function login($scope, $filter, $window, loginService, profileGet, dialogAdvance
         },
 
         watchMatch: function() {
-            $scope.$watchGroup(['login.vars.password', 'login.vars.repassword'], function(value) {
+            $scope.$watchGroup(['login.vars.signUpPassword', 'login.vars.repassword'], function(value) {
+                console.log(value);
                 if (value[0] !== value[1]) {
                     $scope.signUpForm.password.$setValidity('notMatch', false);
                     $scope.signUpForm.repassword.$setValidity('notMatch', false);
@@ -71,7 +72,6 @@ function login($scope, $filter, $window, loginService, profileGet, dialogAdvance
 
         emailChange: function() {
             loginService.emailValidation.save(login.vars, function(data) {
-                console.log(data);
                 switch (true) {
                     case data.status === true:
                         $scope.signUpForm.email.$setValidity('userExist', true);
