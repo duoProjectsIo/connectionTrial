@@ -18,10 +18,12 @@
         }
         .trial__info{
             margin-bottom: 20px;
-            .tria__label{
+            .trial__label{
                 font-weight: bold;
                 margin: 20px 0 10px 0;
                 display: block;
+                float: left;
+                margin: 10px 25px 10px 0;
             }
             .trial__date{
                 width: 75%;
@@ -32,7 +34,10 @@
             }
             .trial__visible-field{
                 display: inline-block;
-                margin-top: 8px;
+                margin: 8px 0 0 0px;
+            }
+            .mce-tinymce{
+                clear: both;
             }
         }
     }

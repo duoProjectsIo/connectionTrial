@@ -68,109 +68,109 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Medidas de resultado primárias atuais</label>
+                    <label class="trial__label">Medidas de resultado primárias atuais</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.currentPrimaryOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentPrimaryOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentPrimaryOutcomeMeasures.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Medidas primárias de resultados originais</label>
+                    <label class="trial__label">Medidas primárias de resultados originais</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.originalPrimaryOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalPrimaryOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalPrimaryOutcomeMeasures.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Histórico de Mudanças</label>
+                    <label class="trial__label">Histórico de Mudanças</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.changeHistory.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.changeHistory.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.changeHistory.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Medidas de resultados secundários atuais</label>
+                    <label class="trial__label">Medidas de resultados secundários atuais</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.currentSecondaryOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentSecondaryOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentSecondaryOutcomeMeasures.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Medidas de resultados secundários atuais</label>
+                    <label class="trial__label">Medidas de resultados secundários atuais</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.originalSecondaryOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalSecondaryOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalSecondaryOutcomeMeasures.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Medidas atuais de outros desfechos</label>
+                    <label class="trial__label">Medidas atuais de outros desfechos</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.currentOtherOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentOtherOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.currentOtherOutcomeMeasures.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Outras medidas originais de resultados</label>
+                    <label class="trial__label">Outras medidas originais de resultados</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.originalOtherOutcomeMeasures.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalOtherOutcomeMeasures.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.originalOtherOutcomeMeasures.value"></textarea>
                 </div>
             </div>
 
             <h1 class="trial__title">Informação descritiva</h1>
             <div class="trial__category-info">
                 <div class="trial__info">
-                    <label class="tria__label">Título Breve</label>
+                    <label class="trial__label">Título Breve</label>
+                    <textarea ng-model="saveTrial.vars.briefTitle.value"></textarea>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.briefTitle.status">
                     </span>
-                    <textarea ng-model="saveTrial.vars.briefTitle.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Título oficial</label>
+                    <label class="trial__label">Título oficial</label>
+                    <textarea ng-model="saveTrial.vars.officialTitle.value"></textarea>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.officialTitle.status">
                     </span>
-                    <textarea ng-model="saveTrial.vars.officialTitle.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Sumário breve</label>
+                    <label class="trial__label">Sumário breve</label>
+                    <textarea ng-model="saveTrial.vars.briefSummary.value"></textarea>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.briefSummary.status">
                     </span>
-                    <textarea ng-model="saveTrial.vars.briefSummary.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Descrição detalhada</label>
+                    <label class="trial__label">Descrição detalhada</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.detailedDescription.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.detailedDescription.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.detailedDescription.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Tipo de estudo</label>
+                    <label class="trial__label">Tipo de estudo</label>
                     <input type="text" ng-model="saveTrial.vars.studyType.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -179,7 +179,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Fase de estudo</label>
+                    <label class="trial__label">Fase de estudo</label>
                     Fase 1
                     <input type="radio" value="phase1" ng-model="saveTrial.vars.studyPhase.value"> Fase 2
                     <input type="radio" value="phase2" ng-model="saveTrial.vars.studyPhase.value"> Fase 3
@@ -192,7 +192,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Design de estudo</label>
+                    <label class="trial__label">Design de estudo</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.studyDesign.status">
@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Condiçao</label>
+                    <label class="trial__label">Condiçao</label>
                     <input type="text" ng-model="saveTrial.vars.condition.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -210,37 +210,37 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Intervenção</label>
+                    <label class="trial__label">Intervenção</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.detailedDescription.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.detailedDescription.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.detailedDescription.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Braços de estudo</label>
+                    <label class="trial__label">Braços de estudo</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.studyArms.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.studyArms.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.studyArms.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Publicações</label>
+                    <label class="trial__label">Publicações</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.publications.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.publications.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.publications.value"></textarea>
                 </div>
             </div>
 
             <h1 class="trial__title">Informação de Recrutamento</h1>
             <div class="trial__category-info">
                 <div class="trial__info">
-                    <label class="tria__label">Status de recrutamento</label>
+                    <label class="trial__label">Status de recrutamento</label>
                     <input type="text" ng-model="saveTrial.vars.recruitmentInformation.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -249,7 +249,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Matrícula estimada</label>
+                    <label class="trial__label">Matrícula estimada</label>
                     <input type="text" ng-model="saveTrial.vars.estimatedEnrollment.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -258,16 +258,16 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Critério de eleição</label>
+                    <label class="trial__label">Critério de eleição</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.eligibilityCriteria.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.eligibilityCriteria.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.eligibilityCriteria.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Sexo</label>
+                    <label class="trial__label">Sexo</label>
                     Masculino
                     <input type="radio" value="m" ng-model="saveTrial.vars.gender.value"> Feminino
                     <input type="radio" value="f" ng-model="saveTrial.vars.gender.value">
@@ -278,7 +278,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Status de recrutamento</label>
+                    <label class="trial__label">Status de recrutamento</label>
                     <input type="text" ng-model="saveTrial.vars.ages.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -287,7 +287,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Aceita voluntários saudáveis</label>
+                    <label class="trial__label">Aceita voluntários saudáveis</label>
                     Sim
                     <input type="radio" value="true" ng-model="saveTrial.vars.acceptsHealthyVolunteers.value"> Não
                     <input type="radio" value="false" ng-model="saveTrial.vars.acceptsHealthyVolunteers.value">
@@ -298,16 +298,16 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Contatos</label>
+                    <label class="trial__label">Contatos</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.contacts.status">
                     </span>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.contacts.value"></textarea>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.contacts.value"></textarea>
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Países listados na lista</label>
+                    <label class="trial__label">Países listados na lista</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.listedLocationCountries.status">
@@ -316,7 +316,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Países de localização removidos</label>
+                    <label class="trial__label">Países de localização removidos</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.removedLocationCountries.status">
@@ -329,7 +329,7 @@
             <div class="trial__category-info">
 
                 <div class="trial__info">
-                    <label class="tria__label">Número NCT</label>
+                    <label class="trial__label">Número NCT</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.NCTNumber.status">
@@ -338,7 +338,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Outros números de ID de estudo</label>
+                    <label class="trial__label">Outros números de ID de estudo</label>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.otherStudyIDNumbers.status">
@@ -347,7 +347,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Tem Comitê de Monitoramento de Dados</label>
+                    <label class="trial__label">Tem Comitê de Monitoramento de Dados</label>
                     Sim
                     <input type="radio" value="true" ng-model="saveTrial.vars.hasDataMonitoringCommittee.value"> Não
                     <input type="radio" value="false" ng-model="saveTrial.vars.hasDataMonitoringCommittee.value">
@@ -358,7 +358,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Produto regulado pela FDA nos EUA</label>
+                    <label class="trial__label">Produto regulado pela FDA nos EUA</label>
                     <input type="text" ng-model="saveTrial.vars.USFDARegulatedProduct.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -367,7 +367,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Declaração de Compartilhamento de IPD</label>
+                    <label class="trial__label">Declaração de Compartilhamento de IPD</label>
                     <input type="text" ng-model="saveTrial.vars.IPDSharingStatement.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -376,7 +376,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Parte Responsável</label>
+                    <label class="trial__label">Parte Responsável</label>
                     <input type="text" ng-model="saveTrial.vars.responsibleParty.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -385,7 +385,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Patrocinador do estudo</label>
+                    <label class="trial__label">Patrocinador do estudo</label>
                     <input type="text" ng-model="saveTrial.vars.studySponsor.value">
                     <span class="trial__visible-field">
                         Campo visivel?
@@ -394,8 +394,8 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Colaboradores</label>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.collaborators.value"></textarea>
+                    <label class="trial__label">Colaboradores</label>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.collaborators.value"></textarea>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.collaborators.status">
@@ -403,8 +403,8 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Investigadores</label>
-                    <textarea ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.investigators.value"></textarea>
+                    <label class="trial__label">Investigadores</label>
+                    <textarea class="trial__text-area" ui-tinymce="saveTrial.vars.tinymceOptions" ng-model="saveTrial.vars.investigators.value"></textarea>
                     <span class="trial__visible-field">
                         Campo visivel?
                         <input type="checkbox" ng-model="saveTrial.vars.investigators.status">
@@ -412,7 +412,7 @@
                 </div>
 
                 <div class="trial__info">
-                    <label class="tria__label">Conta PRS</label>
+                    <label class="trial__label">Conta PRS</label>
                     <input type="text" ng-model="saveTrial.vars.PRSAccount.value">
                     <span class="trial__visible-field">
                         Campo visivel?
