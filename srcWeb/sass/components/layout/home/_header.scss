@@ -2,6 +2,7 @@
 
 body{
     background: #fff;
+    font-family: 'Questrial', sans-serif;
 }
 
 .centralizer{
@@ -13,8 +14,9 @@ body{
     background: url(/files/img/11948.jpg) no-repeat;
     background-size: 100%;
     height: 425px;
-    text-align: center;
+    text-align: center; 
     position: relative;
+    margin-bottom: 18%;
     .header__search-area{
         position: absolute;
         bottom: 0;
@@ -22,7 +24,6 @@ body{
         left: 0;
         margin: auto;
         .header__msg{
-            font-family: 'Questrial', sans-serif;
             color: rgb(25, 101, 148);
             font-weight: bold;
         }
@@ -30,7 +31,6 @@ body{
             margin: 10px 0 20px 0;
             text-align: center;
             font-size: 4em;
-            font-family: 'Questrial', sans-serif;
             color: rgb(25, 101, 148);
         }
         .header__input{
