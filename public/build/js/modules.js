@@ -37,8 +37,7 @@ function login($scope, $filter, $window, loginService, profileGet, dialogAdvance
         },
 
         watchMatch: function() {
-            $scope.$watchGroup(['login.vars.signUpPassword', 'login.vars.repassword'], function(value) {
-                console.log(value);
+            $scope.$watchGroup(['login.vars.password', 'login.vars.repassword'], function(value) {
                 if (value[0] !== value[1]) {
                     $scope.signUpForm.password.$setValidity('notMatch', false);
                     $scope.signUpForm.repassword.$setValidity('notMatch', false);
@@ -98,6 +97,7 @@ function login($scope, $filter, $window, loginService, profileGet, dialogAdvance
 
         emailChange: function() {
             loginService.emailValidation.save(login.vars, function(data) {
+                console.log(data);
                 switch (true) {
                     case data.status === true:
                         $scope.signUpForm.email.$setValidity('userExist', true);
@@ -222,34 +222,7 @@ function trial($scope, $filter, trialService, profileGet, dialogAdvanced, dialog
                 clickOutsideToClose : false,
                 dataToDialog : data,
                 functionThen : function () {
-                    dialogAlert.show({
-                        title : 'Sucesso!',
-                        content : 'Seu Trial foi salvo com sucesso!',
-                        ok : 'OK!'
-                    });
                     trial.functions.getTrials.getTrials();
-                },
-                functionCancel : function () {
-                    trial.functions.getTrials.getTrials();
-                }
-            });
-        },
-
-        deleteTrial : function (data) {
-            dialogConfirm.show({
-                title : 'Atenção!',
-                textContent : 'Deseja realmente deletar este trial?',
-                ok : 'Sim',
-                cancel : 'Cancelar',
-                confirmFunction : function () {
-                    trialService.deleteTrial.save(data, function () {
-                        dialogAlert.show({
-                            title : 'Trial deletado!',
-                            content : 'Seu trial foi deletado com sucesso.',
-                            ok : 'OK'
-                        });
-                        trial.functions.getTrials.getTrials();
-                    });
                 }
             });
         }
@@ -258,20 +231,17 @@ function trial($scope, $filter, trialService, profileGet, dialogAdvanced, dialog
     trial.functions.core();
 }
 
-function saveTrialController(dialogAdvanced, toastAction, trialService, profileGet, data, dialogAlert, chipSimpleToList, $scope) {
+function saveTrialController(dialogAdvanced, toastAction, trialService, profileGet, data, dialogAlert) {
     var saveTrial = this;
     saveTrial.vars = {};
 
     saveTrial.functions = {
-        core: function (salveAndNew) {
-            saveTrial.functions.defineVars(salveAndNew);
-            saveTrial.functions.getKeywords().then(function () {
-                saveTrial.functions.prepareChips();
-            });
+        core: function () {
+            saveTrial.functions.defineVars();
         },
 
-        defineVars : function (salveAndNew) {
-            if(data && !salveAndNew) {
+        defineVars : function () {
+            if(data) {
                 saveTrial.vars = data;
             }else{
                 saveTrial.vars = {
@@ -324,45 +294,15 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
                     investigators : { value : null, status : false},
                     PRSAccount : { value : null, status : false},
                     verificationDate : { value : null, status : false},
-
-                    keywords : []
                 }
             }
 
-            saveTrial.vars.tags = {};
             saveTrial.vars.profile = profileGet;
             saveTrial.vars.tinymceOptions = {
                 selector: 'textarea',
                 plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern',
                 toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat'
             }
-        },
-
-        getKeywords : function () {
-            return new Promise(function (success) {
-                trialService.getKeywords.get(function (data) {
-                    if(data.status){
-                        saveTrial.vars.tags.arrayValues = [];
-                        data.data.forEach(function (value) {
-                            saveTrial.vars.tags.arrayValues.push(value.keywords);
-                        });
-                    }else {
-                        saveTrial.vars.tags.arrayValues = [];
-                    }
-                    success();
-                });
-            })
-        },
-
-        prepareChips : function () {
-            saveTrial.vars.tags = chipSimpleToList.show({
-                readonly : false,
-                selectedItem : null,
-                searchText : saveTrial.vars.tags.searchText,
-                autoCompleteDemoRequireMatch : null,
-                selectedValues : [],
-                arrayValues : saveTrial.vars.tags.arrayValues
-            });
         },
 
         hide : function () {
@@ -381,6 +321,11 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
             },
 
             successSaveTrial : function (data) {
+                dialogAlert.show({
+                    title : 'Sucesso!',
+                    content : 'Seu Trial foi criado com sucesso!',
+                    ok : 'OK!'
+                });
                 saveTrial.functions.hide();
             }
         },
@@ -399,7 +344,57 @@ function saveTrialController(dialogAdvanced, toastAction, trialService, profileG
                     text : 'Trial salvo!',
                     scope : saveTrial
                 });
-                saveTrial.functions.core(true);
+                saveTrial.vars = {
+                    firstSubmittedDate : { value : null, status : false},
+                    firstPostedDate : { value : null, status : false},
+                    lastUpdatePostedDate : { value : null, status : false},
+                    startDate : { value : null, status : false},
+                    estimatedPrimaryCompletionDate : { value : null, status : false},
+                    currentPrimaryOutcomeMeasures : { value : null, status : false},
+                    originalPrimaryOutcomeMeasures : { value : null, status : false},
+                    changeHistory : { value : null, status : false},
+                    currentSecondaryOutcomeMeasures : { value : null, status : false},
+                    originalSecondaryOutcomeMeasures : { value : null, status : false},
+                    currentOtherOutcomeMeasures : { value : null, status : false},
+                    originalOtherOutcomeMeasures : { value : null, status : false},
+
+                    //Descriptive Information
+                    briefTitle : { value : null, status : false},
+                    officialTitle : { value : null, status : false},
+                    briefSummary : { value : null, status : false},
+                    detailedDescription : { value : null, status : false},
+                    studyType : { value : null, status : false},
+                    studyPhase : { value : null, status : false},
+                    studyDesign : { value : null, status : false},
+                    condition : { value : null, status : false},
+                    intervention : { value : null, status : false},
+                    studyArms : { value : null, status : false},
+                    publications : { value : null, status : false},
+
+                    //Recruitment Information
+                    recruitmentStatus : { value : null, status : false},
+                    estimatedEnrollment : { value : null, status : false},
+                    eligibilityCriteria : { value : null, status : false},
+                    gender : { value : null, status : false},
+                    ages : { value : null, status : false},
+                    acceptsHealthyVolunteers : { value : null, status : false},
+                    contacts : { value : null, status : false},
+                    listedLocationCountries : { value : null, status : false},
+                    removedLocationCountries : { value : null, status : false},
+
+                    //Administrative Information
+                    NCTNumber : { value : null, status : false},
+                    otherStudyIDNumbers : { value : null, status : false},
+                    hasDataMonitoringCommittee : { value : null, status : false},
+                    USFDARegulatedProduct : { value : null, status : false},
+                    IPDSharingStatement : { value : null, status : false},
+                    responsibleParty : { value : null, status : false},
+                    studySponsor : { value : null, status : false},
+                    collaborators : { value : null, status : false},
+                    investigators : { value : null, status : false},
+                    PRSAccount : { value : null, status : false},
+                    verificationDate : { value : null, status : false},
+                }
             }
         }
     };
@@ -415,9 +410,7 @@ angular.module('trial')
 function trialService($resource, defineHost) {
     return {
         getTrials : $resource(defineHost.host + '/web/getTrials'),
-        getKeywords : $resource(defineHost.host + '/web/getKeywords'),
-        saveTrial : $resource(defineHost.host + '/web/saveTrial'),
-        deleteTrial : $resource(defineHost.host + '/web/deleteTrial')
+        saveTrial : $resource(defineHost.host + '/web/saveTrial')
     }
 }
 })();
