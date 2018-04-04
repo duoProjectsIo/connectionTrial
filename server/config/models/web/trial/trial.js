@@ -5,6 +5,8 @@ let mongoose = require('mongoose'),
         userID : { type: Schema.ObjectId, required: true, ref : 'userAdmin'},
         dateCreate : { type : Date, default: Date.now },
 
+        keywords : [{ type : String }],
+
         //Tracking information
         firstSubmittedDate : { value : {type : Date, default: Date.now }, status : { type : Boolean } },
         firstPostedDate : { value : {type : Date, default: Date.now }, status : { type : Boolean } },

@@ -1,13 +1,18 @@
 exports.saveTrial = function(req, res) {
     let mongoose = require('mongoose'),
-        trial = mongoose.model('trial');
+        trial = mongoose.model('trial'),
+        keywords = mongoose.model('keywords');
 
     trial.update({
         _id : mongoose.Types.ObjectId(req.body._id)
     }, {
+        $set : {
+            keywords : req.body.keywords
+        },
+
         userID : mongoose.Types.ObjectId(req.body.profile.id),
 
-        //Tracking information
+        //region Tracking information
         firstSubmittedDate : { value : req.body.firstSubmittedDate.value, status : req.body.firstSubmittedDate.status },
         firstPostedDate : { value : req.body.firstPostedDate.value, status : req.body.firstPostedDate.status },
         lastUpdatePostedDate : { value : req.body.lastUpdatePostedDate.value, status : req.body.lastUpdatePostedDate.status },
@@ -20,8 +25,9 @@ exports.saveTrial = function(req, res) {
         originalSecondaryOutcomeMeasures : { value : req.body.originalSecondaryOutcomeMeasures.value, status : req.body.originalSecondaryOutcomeMeasures.status },
         currentOtherOutcomeMeasures : { value : req.body.currentOtherOutcomeMeasures.value, status : req.body.currentOtherOutcomeMeasures.status },
         originalOtherOutcomeMeasures : { value : req.body.originalOtherOutcomeMeasures.value, status : req.body.originalOtherOutcomeMeasures.status },
+        //endregion
 
-        //Descriptive Information
+        //region Descriptive Information
         briefTitle : { value : req.body.briefTitle.value, status : req.body.briefTitle.status },
         officialTitle : { value : req.body.officialTitle.value, status : req.body.officialTitle.status },
         briefSummary : { value : req.body.briefSummary.value, status : req.body.briefSummary.status },
@@ -33,8 +39,9 @@ exports.saveTrial = function(req, res) {
         intervention : { value : req.body.intervention.value, status : req.body.intervention.status },
         studyArms : { value : req.body.studyArms.value, status : req.body.studyArms.status },
         publications : { value : req.body.publications.value, status : req.body.publications.status },
+        //endregion
 
-        //Recruitment Information
+        //region Recruitment Information
         recruitmentStatus : { value : req.body.recruitmentStatus.value, status : req.body.recruitmentStatus.status },
         estimatedEnrollment : { value : req.body.estimatedEnrollment.value, status : req.body.estimatedEnrollment.status },
         eligibilityCriteria : { value : req.body.eligibilityCriteria.value, status : req.body.eligibilityCriteria.status },
@@ -44,8 +51,9 @@ exports.saveTrial = function(req, res) {
         contacts : { value : req.body.contacts.value, status : req.body.contacts.status },
         listedLocationCountries : { value : req.body.listedLocationCountries.value, status : req.body.listedLocationCountries.status },
         removedLocationCountries : { value : req.body.removedLocationCountries.value, status : req.body.removedLocationCountries.status },
+        //endregion
 
-        //Administrative Information
+        //region Administrative Information
         NCTNumber : { value : req.body.NCTNumber.value, status : req.body.NCTNumber.status },
         otherStudyIDNumbers : { value : req.body.otherStudyIDNumbers.value, status : req.body.otherStudyIDNumbers.status },
         hasDataMonitoringCommittee : { value : req.body.hasDataMonitoringCommittee.value, status : req.body.hasDataMonitoringCommittee.status},
@@ -57,6 +65,7 @@ exports.saveTrial = function(req, res) {
         investigators : { value : req.body.investigators.value, status : req.body.investigators.status },
         PRSAccount : { value : req.body.PRSAccount.value, status : req.body.PRSAccount.status },
         verificationDate : { value : req.body.verificationDate.value, status : req.body.verificationDate.status },
+        //endregion
     }, {
         multi : false,
         upsert : true
@@ -65,6 +74,20 @@ exports.saveTrial = function(req, res) {
             console.log(err);
             res.json({status: false});
         }else{
+            req.body.keywords.forEach(function (value) {
+                keywords.update({
+                    keywords : value
+                },{
+                    userID : mongoose.Types.ObjectId(req.body.profile.id),
+                    keywords : value
+                }, {
+                    upsert: true,
+                    new : true
+                }, function (err, data) {
+                    /*console.log(err, data);*/
+                });
+            });
+
             res.json({status: true});
         }
     })

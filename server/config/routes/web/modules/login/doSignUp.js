@@ -8,7 +8,7 @@ exports.doSignUp = function(req, res) {
 
     new userAdmin({
         email: req.body.signUpEmail,
-        password: bcrypt.hashSync(req.body.password, salt),
+        password: bcrypt.hashSync(req.body.signUpPassword, salt),
         name: req.body.name
     }).save().then(function(user) {
         token = jwt.sign({
