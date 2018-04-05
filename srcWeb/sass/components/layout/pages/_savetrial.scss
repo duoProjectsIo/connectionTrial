@@ -1,0 +1,44 @@
+.trial{
+    .trial__title{
+       font-size: 2em;
+       border-bottom: 1px solid #aaa;
+    }
+    .trial__category-info{
+        padding: 20px;
+        .trial__date-div{
+            overflow: hidden;
+            .trial__info{
+                float: left;
+                width: 45%;
+                margin-right: 100px;
+                &:nth-child(even){
+                    margin-right: 0px;
+                }
+            }
+        }
+        .trial__info{
+            margin-bottom: 20px;
+            .trial__label{
+                font-weight: bold;
+                margin: 20px 0 10px 0;
+                display: block;
+                float: left;
+                margin: 10px 25px 10px 0;
+            }
+            .trial__date{
+                width: 75%;
+                input{
+                    width: 90%;
+                    padding: 10px;
+                }
+            }
+            .trial__visible-field{
+                display: inline-block;
+                margin: 8px 0 0 0px;
+            }
+            .mce-tinymce{
+                clear: both;
+            }
+        }
+    }
+}

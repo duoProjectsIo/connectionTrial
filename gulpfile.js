@@ -196,18 +196,18 @@ gulp.task('sassWeb', function () {
 //region Watch for changes in files
 gulp.task('watch', function () {
     // Watch App Files
-    gulp.watch(App + '**/*.js', ['app']);
+    /*gulp.watch(App + '**!/!*.js', ['app']);*/
     gulp.watch(AppWeb + '**/*.js', ['appWeb']);
     // Watch User Files
-    gulp.watch(modules + '**/*.js', ['modules']);
+    /*gulp.watch(modules + '**!/!*.js', ['modules']);*/
     gulp.watch(modulesWeb + '**/*.js', ['modulesWeb']);
     // Watch .scss files
-    gulp.watch(src + 'sass/**/*.scss', ['sass']);
+    /*gulp.watch(src + 'sass/!**!/!*.scss', ['sass']);*/
     gulp.watch(srcWeb + 'sass/**/*.scss', ['sassWeb']);
     // Watch vendor files
-    gulp.watch(bower + '**/*.js', ['vendor']);
+    /*gulp.watch(bower + '**!/!*.js', ['vendor']);*/
     gulp.watch(bower + '**/*.js', ['vendorWeb']);
-    gulp.watch(bower + '**/*.css', ['css']);
+    /*gulp.watch(bower + '**!/!*.css', ['css']);*/
     gulp.watch(bower + '**/*.css', ['cssWeb']);
 });
 //endregion
