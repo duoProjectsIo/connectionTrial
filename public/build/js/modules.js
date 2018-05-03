@@ -8,6 +8,21 @@ angular.module('modules', [
 })();
 (function(){
 "use strict";
+angular.module('home', [])
+    .controller('homeController', home);
+
+function home(dialogAdvanced) {
+    var home = this;
+    home.vars = {};
+
+    home.functions = {
+        core: function() {},
+    };
+
+}
+})();
+(function(){
+"use strict";
 angular.module('login', [])
     .controller('loginController', login);
 
@@ -403,20 +418,5 @@ function trialService($resource, defineHost) {
         saveTrial : $resource(defineHost.host + '/web/saveTrial'),
         deleteTrial : $resource(defineHost.host + '/web/deleteTrial')
     }
-}
-})();
-(function(){
-"use strict";
-angular.module('home', [])
-    .controller('homeController', home);
-
-function home(dialogAdvanced) {
-    var home = this;
-    home.vars = {};
-
-    home.functions = {
-        core: function() {},
-    };
-
 }
 })();
