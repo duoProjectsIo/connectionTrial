@@ -1,49 +1,119 @@
-.section{
-    .section__title{
-        font-size: 2em;
-        margin: 75px 0 20px 0;
+.section {
+    height: 100%;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    text-align: center;
+    .section__block {
+        width: 50%;
+        float: left;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .section__content {
+            .section__parag {
+                font-size: 1.2em;
+                line-height: 30px;
+            }
+            .section_img {
+                margin-top: 30px;
+                width: 90%;
+                box-shadow: 1px 1px 5px #555;
+            }
+        }
     }
-    .how-works{
+    .block-01 {
+        color: #fff;
+        background: linear-gradient(to bottom right, #58C5D4, rgb(37, 148, 163));
+    }
+    .block-02 {
+        color: #fff;
+        background: linear-gradient(to bottom right, #205d95, #4188ca);
+        .section__title {
+            color: #fff;
+        }
+    }
+    .half-01 {
+        color: #878787;
+        .section__title {
+            color: #878787;
+        }
+    }
+    .how-works {
+        color: #878787;
+        .how-works__item {
+            margin-bottom: 70px;
+            .how-works__main-title {
+                color: #878787;
+            }
+            .how-works__icon {
+                color: #205d95;
+            }
+        }
+    }
+    .half-2 {
+        color: #fff;
+        background: linear-gradient(to bottom right, #58C5D4, rgb(37, 148, 163));
+        .how-works__item {
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+            color: #fff;
+            .how-works__icon {
+                color: #fff;
+            }
+        }
+    }
+    .phase-03 {
+        .how-works__item {
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    .section__title {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        color: #888;
+        text-align: center;
+    }
+    .how-works {
         margin: 20px 0;
         text-align: center;
-        .how-works__icon{
+        display: flex;
+        .how-works__icon {
             font-size: 6em;
             margin: 15px;
         }
-        .how-works__main-title{
+        .how-works__main-title {
             font-size: 1.3em;
             font-weight: bold;
         }
     }
-    .phase-01{
-        margin-top: 50px;
-        overflow: hidden;
-        .how-works__item{
-            float: left;
-            margin: 0 50px;
-            &:nth-child(2){
-                float: right;
-            }
-        }
+    .section__video {
+        width: 70%;
+        margin-top: 2%;
     }
-    .phase-02{
-        margin-top: 50px;
-        overflow: hidden;
-        .how-works__main-title{
-            margin-bottom: 30px;
-        }
-        .clinical{
-            width: 20%;
-            float: left;
-            margin-right: 6.6%;
-            &:last-child{
-                margin-right: 0;
-            }
-        }
-    }
-    .section__video{
-        margin: 20px 0;
-        width: 100%;
-        
+}
+
+.section-clinical {
+    position: relative;
+    .how-works__main-title {
+        position: absolute;
+        margin: auto;
+        top: 5%;
+        font-size: 2em;
+        color: #888;
+        background: #fff;
+        width: 20%;
+        right: 0;
+        left: 0;
+        padding: 10px 5px;
+        border-radius: 40px;
+        border-bottom: 2px solid #58C5D4;
+        border-top: 2px solid #58C5D4;
+        border-left: 2px solid #58C5D4;
     }
 }

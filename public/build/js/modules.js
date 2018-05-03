@@ -19,7 +19,6 @@ function home(dialogAdvanced) {
         core: function() {},
     };
 
-    home.functions.core();
 }
 })();
 (function(){

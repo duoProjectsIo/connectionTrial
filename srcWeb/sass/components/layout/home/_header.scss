@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
-body{
+$white: #fff;
+$blue: #71ccd5;
+$dark-grey: #888;
+$grey: #bbb;
+$light-grey: #dfdfdf;
+
+body, html{
     background: #fff;
     font-family: 'Questrial', sans-serif;
-}
-
-.centralizer{
-    width: 80%;
-    margin: 0 auto;
+    height: 100%;
 }
 
 .header{
-    background: url(/files/img/11948.jpg) no-repeat;
-    background-size: 100%;
-    height: 425px;
+    height: 100%;
+    background: url(/files/img/bg-header.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center; 
-    position: relative;
-    margin-bottom: 18%;
+    background-position: center;
     .header__search-area{
         position: absolute;
-        bottom: 0;
+        top: 35%;
         right: 0;
         left: 0;
         margin: auto;
@@ -33,28 +35,63 @@ body{
             font-size: 4em;
             color: rgb(25, 101, 148);
         }
-        .header__input{
-            width: 50%;
-            display: block;
-            margin: 0 auto 20px auto;
-            padding: 15px 10px;
-        }
         .header__btn{
-            width: 15%;
-            padding: 10px 5px;
-            border: none;
-            background: rgb(25, 101, 148);
+            background: #205D95;
+            padding: 10px 15px;
             color: #fff;
+            border: navajowhite;
+            border-radius: 3px;
             font-weight: bold;
-            text-transform: uppercase;
-            transition: .2s ease-in;
+            transition: .3s ease;
             &:hover{
-                background: rgb(35, 150, 221);
+                background: rgb(58, 113, 165);
+                box-shadow: 1px 1px 5px #333;
             }
-        }
-        .header__search-area{
-            text-align: center;
         }
     }
 }
 
+.tags-input{
+  width: 50%;
+  margin: 0 auto 20px auto;
+  border: 2px solid $light-grey;
+  border-radius: 40px;
+  height: 40px;
+  padding: 0 11px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: $dark-grey;
+  background: #fff;
+  span{
+    background: $grey;
+    margin-right: 7px;
+    color: $white;
+    padding: 4px 7px;
+    border-radius: 20px;
+    &[data-selected]{
+      background: $blue;
+    }
+  &::after{
+    content: '';
+    background: $dark-grey;
+    width: 1px;
+    height: 19px;
+    margin: -1px 0 0 -1px;
+    display: none;
+    animation: blink 0.5s infinite alternate;
+}
+  &:focus{
+    border-color: $blue;
+    outline: none;
+    &[data-cursor]::after{
+      display: block;
+      @media screen and (max-width: 736px){
+        display: none;
+        }
+    }
+    
+    }
+  }
+}

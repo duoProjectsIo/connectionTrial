@@ -1,39 +1,55 @@
 <header class="header">
     <div class="header__search-area">
         <h1 class="header__title">ConnectionTrial</h1>
-        <input class="header__input" type="text" placeholder="Digite o nome da doença">
+        <div class="tags-input"></div>
         <button class="header__btn" type="submmit">Procurar</button>
     </div>
 </header>
 
 <section class="section">
-    <div class="centralizer">
-        <article class="section__article">
-            <h2 class="section__title">O que é um estudo clínico?</h2>
-            <p>Lorem ipsum velit nibh gravida curae rhoncus nisl pulvinar ultrices morbi fermentum integer praesent dapibus
-            </p>
-        </article>
+    <div class="section__block">
+        <div class="section__content">
+            <h2 class="section__title ">O que é um estudo clínico?</h2>
+            <img class="section_img" src="/files/img/estudo-clinico.jpg" alt="">
+        </div>
+    </div>
+    <div class="section__block block-01">
+        <div class="section__content">
+            <p class="section__parag">Lorem ipsum velit nibh gravida curae rhoncus nisl pulvinar ultrices morbi fermentum integer praesent dapibus
+                lorem ipsum velit nibh gravida curae rhoncus nisl pulvinar ultrices morbi fermentum integer praesent dapibus</p>
+        </div>
     </div>
 </section>
 
 <section class="section">
-    <div class="centralizer">
-        <article class="section__article">
-            <h2 class="section__title">Como funciona um estudo clínico</h2>
-            <ul class="how-works phase-01">
-                <li class="how-works__item">
+    <div class="section__block block-02">
+        <div class="section__content">
+            <h2 class="section__title">Como funciona um estudo clínico?</h2>
+        </div>
+    </div>
+    <div class="section__block">
+        <div class="section__content">
+            <div class="how-works">
+                <div class="how-works__item">
                     <h3 class="how-works__main-title">Desenvolvimento</h3>
                     <i class="fa fa-wpforms how-works__icon"></i>
-                    <p class="how-works__description">Desenvolve a molécula e estuda suas propriedades</p>
-                </li>
-                <li class="how-works__item">
+                    <p class="how-works__description">Desenvolve a molécdiva e estuda suas propriedades</p>
+                </div>
+                <div class="how-works__item">
                     <h3 class="how-works__main-title">Pré-clínico</h3>
                     <i class="fa fa-flask how-works__icon"></i>
                     <p class="how-works__description">Realizado em animais, meio e cultura e in silico</p>
-                </li>
-            </ul>
-            <ul class="how-works phase-02">
-                <h3 class="how-works__main-title">Clínico</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-clinical">
+    <h3 class="how-works__main-title">Clínico</h3>
+    <div class="section__block half-01">
+        <div class="section__content">
+            <ul class="how-works phase-03">
                 <li class="how-works__item clinical">
                     <h3 class="how-works__title">Fase I</h3>
                     <i class="fa fa-child how-works__icon"></i>
@@ -44,29 +60,187 @@
                     <i class="fa fa-heartbeat how-works__icon"></i>
                     <p class="how-works__description">Grupo com cerca de 100 pessoas, saudáveis e doentes. Segurança do produto e verificar a dose de eficácia</p>
                 </li>
-                <li class="how-works__item clinical">
-                    <h3 class="how-works__title">Fase III</h3>
-                    <i class="fa fa-stethoscope how-works__icon"></i>
-                    <p class="how-works__description">Grupo com mais de 800 pessoas, maioria doentes. Verificar eficácia, via de administração e associações
-                        com outros medicamentos</p>
-                </li>
-                <li class="how-works__item clinical">
-                    <h3 class="how-works__title">Fase IV</h3>
-                    <i class="fa fa-medkit how-works__icon"></i>
-                    <p class="how-works__description">Comercialização. Estudos de vigilância</p>
-                </li>
             </ul>
-        </article>
+        </div>
+    </div>
+    <div class="section__block half-2">
+        <ul class="how-works">
+            <li class="how-works__item clinical">
+                <h3 class="how-works__title">Fase III</h3>
+                <i class="fa fa-stethoscope how-works__icon"></i>
+                <p class="how-works__description">Grupo com mais de 800 pessoas, maioria doentes. Verificar eficácia, via de administração e associações com
+                    outros medicamentos
+                </p>
+            </li>
+            <li class="how-works__item clinical">
+                <h3 class="how-works__title">Fase IV</h3>
+                <i class="fa fa-medkit how-works__icon"></i>
+                <p class="how-works__description">Comercialização. Estudos de vigilância</p>
+            </li>
+        </ul>
     </div>
 </section>
 
-<section class="section">
-    <div class="centralizer">
-        <article class="section__article">
-            <h2 class="section__title">Como este site funciona?</h2>
-            <p>Lorem ipsum velit nibh gravida curae rhoncus nisl pulvinar ultrices morbi fermentum integer praesent dapibus
-            </p>
-        </article>
-        <video class="section__video" src="/files/video/how-to.webm" autoplay loop></video>
-    </div>
+<section class="section video">
+    <article class="section__article">
+        <h2 class="section__title">Como este site funciona?</h2>
+        <p>Lorem ipsum velit nibh gravida curae rhoncus nisl pulvinar ultrices morbi fermentum integer praesent dapibus
+        </p>
+    </article>
+    <video class="section__video" src="/files/video/how-to.webm" autoplay loop></video>
 </section>
+
+<script>
+    var TagsInput = function (element) {
+        var self = this;
+        var initChar = "\u200B";
+        var initCharPattern = new RegExp(initChar, 'g');
+
+        var insert = function (element) {
+            if (self.textNode) self.element.insertBefore(element, self.textNode);
+            else self.element.appendChild(element);
+        };
+
+        var updateCursor = function () {
+            self.cursor = self.blank;
+        };
+
+        var keydown = function (event) {
+            if (event.keyCode == 188) {
+                event.preventDefault();
+                setTimeout(function () {
+                    var text = self.text;
+                    if (text) {
+                        self.text = initChar;
+                        self.add(text);
+                    }
+                }, 1);
+            } else if (event.keyCode == 8) {
+                if (self.text.replace(initCharPattern, '') == '') {
+                    self.text = initChar + initChar;
+                    if (self.selected) {
+                        self.element.removeChild(self.selected);
+                    } else {
+                        var tags = self.tags;
+                        var keys = Object.keys(tags)
+                        if (keys.length > 0) {
+                            var tag = tags[keys[keys.length - 1]];
+                            tag.setAttribute('data-selected', '');
+                        }
+                    }
+                }
+            }
+
+            if (event.keyCode !== 8) {
+                if (self.selected) self.selected.removeAttribute('data-selected');
+            }
+            setTimeout(function () {
+                updateCursor();
+            }, 1);
+        };
+
+        var focus = function () {
+            updateCursor();
+        };
+
+        Object.defineProperties(this, {
+            element: {
+                get: function () {
+                    return element;
+                },
+                set: function (v) {
+                    if (typeof v == 'string') v = document.querySelector(v);
+                    element = v instanceof Node ? v : document.createElement('div');
+                    if (!element.className.match(/\btags-input\b/)) element.className += ' tags-input';
+                    if (element.getAttribute('contenteditable') != 'true') element.setAttribute(
+                        'contenteditable', 'true');
+
+                    element.removeEventListener('keydown', keydown);
+                    element.addEventListener('keydown', keydown);
+
+                    element.removeEventListener('focus', focus);
+                    element.addEventListener('focus', focus);
+                    this.text = initChar;
+                }
+            },
+            tags: {
+                get: function () {
+                    var element;
+                    var elements = this.element.querySelectorAll('span');
+                    var tags = {};
+                    for (var i = 0; i < elements.length; i++) {
+                        element = elements[i]
+                        tags[element.innerText] = element;
+                    }
+
+                    return tags;
+                }
+            },
+            lastChild: {
+                get: function () {
+                    return this.element.lastChild;
+                }
+            },
+            textNode: {
+                get: function () {
+                    return this.element.lastChild instanceof Text ? this.element.lastChild : null;
+                }
+            },
+            text: {
+                get: function () {
+                    return this.textNode ? this.textNode.data : null;
+                },
+                set: function (v) {
+                    if (!this.textNode) this.element.appendChild(document.createTextNode(','));
+                    this.textNode.data = v;
+                },
+            },
+            cursor: {
+                get: function () {
+                    return this.element.getAttribute('data-cursor') !== null;
+                },
+                set: function (v) {
+                    if (v) this.element.setAttribute('data-cursor', '');
+                    else this.element.removeAttribute('data-cursor');
+                }
+            },
+            focused: {
+                get: function () {
+                    return document.activeElement == this.element;
+                }
+            },
+            blank: {
+                get: function () {
+                    return this.text.replace(initCharPattern, '') == '';
+                }
+            },
+            selected: {
+                get: function () {
+                    return this.element.querySelector('span[data-selected]');
+                }
+            }
+        });
+
+        this.add = function (tag) {
+            tag = tag.replace(initCharPattern, '');
+            tag = tag.replace(/^\s+/, '').replace(/\s+$/, '');
+            tag = tag[0].toUpperCase() + tag.toLowerCase().slice(1);
+            if (tag != '' && this.tags[tag] === undefined) {
+                var element = document.createElement('span');
+                element.appendChild(document.createTextNode(tag));
+                element.setAttribute('contenteditable', 'false');
+
+                insert(element);
+            }
+        };
+
+        this.remove = function (tag) {
+            var element = this.tags[tag];
+            if (element) this.element.removeChild(element);
+        };
+
+        this.element = element;
+    };
+
+    var input = new TagsInput('.tags-input');
+</script>
